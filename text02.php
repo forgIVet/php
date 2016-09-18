@@ -8,7 +8,7 @@ echo phpinfo();
 echo date('Y-m-s H:i:s')
 ?>
 
-/**/
+/*在页面*/
 
 
 /**/
