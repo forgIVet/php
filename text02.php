@@ -132,3 +132,30 @@ echo $str
             }
     }
 ?>
+
+/*049打印随机组合生日祝福语*/
+<?php
+     $arr = array("生日快乐","今天是你的生日","同学们为你许愿");
+     $array = array("祝你万事如意","祝你生日快乐","祝你福如东海长流水寿比南山不老松");
+     $rand = rand(0,2);
+     echo $arr[$rand].$array[$rand];
+?>
+
+/*050打印2000~2020年间的所有闰年*/
+<body background="../image/1.jpg" style="font-size:18px; color:red; font-family:'微软雅黑'">
+<form action="" method="post">
+<input type="submit" name="sub" value="打印2000~2020年之间的所有闰年">
+</form>
+
+<br>
+<?php
+	if(isset($_POST['sub'])){
+		for($a = 2000;$a <= 2020;$a++){
+			if($a % 4 == 0){
+				echo $a."&nbsp;&nbsp;";
+			}
+		}
+	}
+?>
+</body>
+</html>
