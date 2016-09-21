@@ -74,9 +74,9 @@ echo $str
 
 /*045自定义数字的加密/解密算法*/
 <?php
-    echo "<form action=" method='post'>"
+    echo "<form action='' method='post'>";
     echo "数字口令：<input name='text' type='test'>";
-    echo "<input type='submit' name='sub' value='确定'>"
+    echo "<input type='submit' name='sub' value='确定'>";
     echo "</form>";
     define("PI",3.1415926);
     function Encrypt($str){
@@ -94,5 +94,41 @@ echo $str
 <?php
     if(isset($_GET[ped])){
             echo "解密口令&nbsp;&nbsp;".Decrypt($_SESSION[pwd]);
+    }
+?>
+
+/*046比较两个时间戳的大小*/
+<?php
+    date_default_timezone_set("Asia/ShangHai");
+    $a = strtotime("now");
+    $b = strtotime("05 May 2014");
+    echo $a."\n";
+    echo "输出时间".date("Y-m-d H:i:s",$a)."<br><br>";
+    echo $b."\n";
+    echo "输出时间".date("Y-m-d H:i:s",$b)."<br><br>";
+    $c = ceil(($a-$b)/(3600*24));
+    echo "据2014年5月5日已经过去".$c."天";
+?>
+
+/*047使用条件运算符判断数字的奇偶性*/
+<?php
+    for($a = 0;$a < 10;$a++){
+            echo $a % 2==0?  $a."是偶数"."\n":$a."是奇数"."\n";
+    }
+?>
+
+/*048判断用户是否具有后台管理权限*/
+<?php
+    echo "<form action='' method='post'>";
+    echo "I&nbsp;&nbsp;&nbsp;D:<input type='text' name='text'><br>";
+    echo "Password:<input type='password' name='pwd'>";
+    echo "<input type='submit' name='sub' value='确定'>";
+    echo "</form>";
+    if($_POST[sub]){
+            if($_POST[text] == "mr" && $_POST[pwd] == "mrsoft"){
+                 echo "<script>alert('您具有管理员权限');</script>";
+            }else{
+                 echo "<script>alert('您非权限用户');</script>";
+            }
     }
 ?>
